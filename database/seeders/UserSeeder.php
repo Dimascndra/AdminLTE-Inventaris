@@ -14,26 +14,37 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $role_super_admin = Role::where('name','super_admin')-> first();
-        $role_admin = Role::where('name','admin')->first();
-        $role_employee = Role::where('name','employee')->first();
+        $role_super_admin = Role::where('name', 'super_admin')->first();
+        $role_admin = Role::where('name', 'admin')->first();
+        $role_employee = Role::where('name', 'employee')->first();
+        $role_pimpinan = Role::where('name', 'pimpinan')->first();
         // dd($role_admin->id);
-        User::create([
-            "name" => "ryugen",
+        User::firstOrCreate([
             "username" => "ryugen",
-            "role_id" =>  $role_employee -> id,
+        ], [
+            "name" => "ryugen",
+            "role_id" =>  $role_employee->id,
             "password" => bcrypt('12345678')
         ]);
-        User::create([
-            "name" => "admin",
+        User::firstOrCreate([
             "username" => "admin",
-            "role_id" => $role_admin -> id,
+        ], [
+            "name" => "admin",
+            "role_id" => $role_admin->id,
             "password" => bcrypt('12345678')
         ]);
-        User::create([
-            "name" => "super admin",
+        User::firstOrCreate([
             "username" => "super_admin",
-            "role_id" => $role_super_admin -> id,
+        ], [
+            "name" => "super admin",
+            "role_id" => $role_super_admin->id,
+            "password" => bcrypt('12345678')
+        ]);
+        User::firstOrCreate([
+            "username" => "pimpinan",
+        ], [
+            "name" => "pimpinan",
+            "role_id" => $role_pimpinan->id,
             "password" => bcrypt('12345678')
         ]);
     }

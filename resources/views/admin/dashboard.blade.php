@@ -11,7 +11,7 @@
               <div class="inner">
                 <h3>{{$product_count}}</h3>
 
-                <p class="font-weight-bold">{{ __("goods") }}</p>
+                <p class="font-weight-bold">{{ __("Daftar Barang") }}</p>
               </div>
               <div class="icon">
                 <i class="fas fa-boxes"></i>
@@ -26,7 +26,7 @@
               <div class="inner">
                 <h3>{{$category_count}}</h3>
 
-                <p class="font-weight-bold">{{ __("types of goods") }}</p>
+                <p class="font-weight-bold">{{ __("Kategori") }}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-pricetags"></i>
@@ -41,7 +41,7 @@
               <div class="inner">
                 <h3>{{$unit_count}}</h3>
 
-                <p class="font-weight-bold">{{ __("unit of goods") }}</p>
+                <p class="font-weight-bold">{{ __("Lokasi") }}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-cube"></i>
@@ -56,7 +56,7 @@
               <div class="inner">
                 <h3>{{$brand_count}}</h3>
 
-                <p class="font-weight-bold">{{ __("brand of goods") }}</p>
+                <p class="font-weight-bold">{{ __("Merek") }}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-pricetag"></i>
@@ -67,8 +67,8 @@
 
 
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
+           <!-- <div class="col-lg-3 col-6">
+            <!-- small box 
             <div class="small-box bg-green">
               <div class="inner">
                 <h3>{{$goodsin}}</h3>
@@ -83,7 +83,7 @@
           </div>
 
           <div class="col-lg-3 col-6">
-            <!-- small box -->
+            <!-- small box 
             <div class="small-box bg-orange">
               <div class="inner" style="color:white !important;">
                 <h3>{{$goodsout}}</h3>
@@ -98,7 +98,7 @@
           </div>
 
           <div class="col-lg-3 col-6">
-            <!-- small box -->
+            <!-- small box 
             <div class="small-box bg-purple">
               <div class="inner">
                 <h3>{{$customer}}</h3>
@@ -113,7 +113,7 @@
           </div>
 
           <div class="col-lg-3 col-6">
-            <!-- small box -->
+            <!-- small box 
             <div class="small-box bg-purple">
               <div class="inner">
                 <h3>{{$supplier}}</h3>
@@ -125,7 +125,7 @@
               </div>
               <a href="{{route('customer')}}" class="small-box-footer">{{ __('messages.more-info') }} <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -133,7 +133,7 @@
               <div class="inner">
                 <h3>{{$staffCount}}</h3>
 
-                <p class="font-weight-bold">{{ __("employee") }}</p>
+                <p class="font-weight-bold">{{ __("Petugas") }}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-android-person"></i>
@@ -142,8 +142,8 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
+          <!-- <div class="col-lg-3 col-6">
+            <!-- small box 
             <div class="small-box bg-yellow" style="color:white !important;">
               <div class="inner">
                 <h3 id="total-pendapatan-bulan-ini">Rp. 0</h3>
@@ -154,12 +154,12 @@
               </div>
               <a href="" class="small-box-footer" style="color:white !important;">{{ __('messages.more-info') }} <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> -->
 
   </div>
 </div>
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12 col-lg-6">
       <div class="card">
@@ -214,7 +214,7 @@
 
     </div>
   </div>
-</div>
+</div> -->
 
 <script src="{{asset('theme/plugins/chart.js/Chart.min.js')}}"></script>
 <script>

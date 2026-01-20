@@ -26,6 +26,10 @@ class ItemController extends Controller
         $items = Item::with('category','unit','brand')->latest()->get();
         if($request -> ajax()){
             return DataTables::of($items)
+               // ✅ FIX WAJIB: kirim kolom tanggal_masuk ke DataTables
+            ->addColumn('tanggal_masuk', function ($data) {
+            return $data->tanggal_masuk;
+            })
             ->addColumn('img',function($data){
                 if(empty($data->image)){
                     return "<img src='".asset('default.png')."' style='width:100%;max-width:240px;aspect-ratio:1;object-fit:cover;padding:1px;border:1px solid #ddd'/>";
@@ -41,6 +45,13 @@ class ItemController extends Controller
             -> addColumn('brand_name',function($data){
                 return $data -> brand -> name;
             })
+            ->addColumn('condition', function($data) { //tambahan 
+            return $data->condition ?? 'Baik';
+            })
+
+             ->addColumn('quantity', function($data){ // ✅ tambahkan ini
+                 return $data->quantity ?? 0;
+            })    
             -> addColumn('tindakan',function($data){
                     $button = "<button class='ubah btn btn-success m-1' id='".$data->id."'><i class='fas fa-pen m-1'></i>".__("edit")."</button>";
                     $button .= "<button class='hapus btn btn-danger m-1' id='".$data->id."'><i class='fas fa-trash m-1'></i>".__("delete")."</button>";
@@ -57,10 +68,13 @@ class ItemController extends Controller
         $data = [
             'name'=>$request->name,
             'code'=>$request->code,
+            'tanggal_masuk'=>$request->tanggal_masuk,
             'price'=>$request->price,
+            'quantity'=> $request->quantity,
             'category_id'=>$request->category_id,
             'brand_id'=>$request->brand_id,
             'unit_id'=>$request->unit_id,
+            'condition'=> $request->condition ?? 'Baik', // ✅ tambahkan ini
         ];
         if ($request->file('image') != null) {
             $image = $request->file('image');
@@ -103,11 +117,13 @@ class ItemController extends Controller
         $data = [
             'name'=>$request->name,
             'code'=>$request->code,
+            'tanggal_masuk' => $request->tanggal_masuk,
             'price'=>$request->price,
             'quantity'=>$request->quantity,
             'category_id'=>$request->category_id,
             'brand_id'=>$request->brand_id,
-            'unit_id'=>$request->unit_id
+            'unit_id'=>$request->unit_id,
+            'condition'=> $request->condition ?? 'Baik', // ✅ tambahkan ini
         ];
         if ($request->file('image') != null) {
             Storage::delete('public/barang/'.$item->image);

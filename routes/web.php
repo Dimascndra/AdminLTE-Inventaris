@@ -19,6 +19,7 @@ use App\Http\Controllers\WebSettingController;
 use App\Http\Controllers\AdminatorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportFinancialController;
+use App\Http\Controllers\ReportNewGoodsController; //controller baru 
 
 Route::middleware(["localization"])-> group(function(){
     Route::get('/',[LoginController::class,'index'])->name('login');
@@ -144,7 +145,7 @@ Route::middleware(['auth', "localization"])-> group(function(){
         Route::get('/list','list')->name('laporan.keluar.list');
     });
 
-    // laporan stok barang
+    // laporan stok barang  
     Route::controller(ReportStockController::class)->prefix('/laporan/stok')->group(function(){
         Route::get('/','index')->name('laporan.stok');
         Route::get('/list','list')->name('laporan.stok.list');
@@ -153,6 +154,18 @@ Route::middleware(['auth', "localization"])-> group(function(){
 
     // laporan penghasilan
     Route::get('/report/income',[ReportFinancialController::class,'income'])->name('laporan.pendapatan');
+
+    
+
+    // laporan barang baru
+    Route::controller(ReportNewGoodsController::class)
+        ->prefix('/laporan/barang-baru')
+        ->group(function () {
+         Route::get('/', 'index')->name('laporan.barangbaru');
+         Route::get('/list', 'list')->name('laporan.barangbaru.list');
+    });
+
+
 
     // pengaturan pengguna
     Route::middleware(['employee.middleware'])->group(function(){
@@ -178,3 +191,4 @@ Route::middleware(['auth', "localization"])-> group(function(){
     // logout
     Route::get('/logout',[LoginController::class,'logout'])->name('login.delete');
 });
+

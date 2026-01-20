@@ -29,7 +29,9 @@ class DashboardController extends Controller
         $goodsout = GoodsOut::count();
         $customer = Customer::count();
         $supplier = Supplier::count();
-        $staffCount = User::where('role_id',2)->count();
+        $staffCount = User::whereHas('role', function ($q) {
+        $q->where('name', 'employee');
+        })->count();
         return view('admin.dashboard',compact('product_count',
         'category_count','unit_count',
         'brand_count','goodsin','goodsout','customer','supplier','staffCount'));

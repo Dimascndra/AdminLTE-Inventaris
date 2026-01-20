@@ -12,10 +12,11 @@ class Item extends Model
     use HasFactory;
     protected $table = 'items';
     protected $fillable = [
-        'name','image','code',
+        'name','image','code', 'tanggal_masuk',
         'price','quantity','category_id','brand_id',
         'unit_id',
-        'active'
+        'active',
+        'condition', // ✅ tambahkan ini
     ];
 
     public function category(): BelongsTo

@@ -16,14 +16,13 @@ class UnitSeeder extends Seeder
         $units = [
             'Unit',
             'Rim',
-            'Psc',
+            'Pcs',
             'Lisensi'
         ];
-        foreach($units as $unit){
+        foreach ($units as $unit) {
             Unit::create([
-                'name'=>$unit
+                'name' => $unit
             ]);
         }
-        
     }
 }

@@ -16,9 +16,9 @@ class StaffMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role->name == 'staff'){
-            return redirect()->back(); 
+        if (Auth::user()->role->name == 'staff' || Auth::user()->role->name == 'pimpinan') {
+            return redirect()->back();
         }
-        return $next($request); 
+        return $next($request);
     }
 }
