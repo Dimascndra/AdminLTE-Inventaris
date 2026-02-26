@@ -16,7 +16,7 @@ class SettingSeeder extends Seeder
         $config = [
             "web"=>[
                 "title"=>"Management Barang",
-                "icon"=>"icon.jpg",
+                "icon"=>"almahira.png",
                 "description"=>"aplikasi sistem inforamsi barang"
             ],
             "roles"=>[
